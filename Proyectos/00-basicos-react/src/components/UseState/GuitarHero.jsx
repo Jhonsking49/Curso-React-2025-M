@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import guitarsolid from "../../assets/guitar-solid.svg"
 import GuitarComponent from '../GuitarComponent';
 
 const initialGuitars = [
