@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { TaskContext } from "../context/TaskContext"
 
 const TaskList = () => {
-    const {tasks, deleteTask, toggleTaskCompletion} = useContext(TaskContext);
+    const {tasks, deleteTask, toggleTaskCompletion, editTask} = useContext(TaskContext)
 
     const handleDelete = (taskId) => {
         deleteTask(taskId)
@@ -12,7 +12,8 @@ const TaskList = () => {
         toggleTaskCompletion(taskId);
     }
     const handleEdit = (taskId) => {
-        
+        const newtask = prompt("Introduce el nuevo titulo de la tarea")
+        editTask(taskId, newtask);
     }
     return (
         <div className="p-4 bg-gray-300 rounded-lg mt-10 mb-5 shadow-md">
@@ -27,7 +28,7 @@ const TaskList = () => {
                         <span className={`flex-1 ${task.completed != true ? "line-through text-gray-600" : ""}`}>{task.title}</span>
                         <button className="px-3 py-1 bg-red-500 text-white rounded mr-2" onClick={()=> handleDelete(task.id)} value={task.id}>Eliminar</button>
                         <button className="px-3 py-1 bg-blue-500 text-white rounded mr-2" onClick={()=>handleChangeState(task.id)} value={task.id}>Completar</button>
-                        <button className="px-3 py-1 bg-blue-500 text-white rounded mr-2" onClick={()=>handleEdit(task.id)} value={task}>Editar</button>
+                        <button className="px-3 py-1 bg-blue-500 text-white rounded mr-2" onClick={()=>handleEdit(task.id)} value={task.id}>Editar</button>
 
                     </li>
                 )

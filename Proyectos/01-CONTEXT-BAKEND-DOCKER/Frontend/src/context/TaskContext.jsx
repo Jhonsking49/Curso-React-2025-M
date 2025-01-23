@@ -32,8 +32,8 @@ export const TaskProvider = ({ children }) => {
         setTasks((prevTasks)=>[...prevTasks, task])
     }
     // editar tareas
-    const editTask = (task) =>{
-        setTasks()
+    const editTask = (taskId, newtask) =>{
+        setTasks((prevTasks)=>prevTasks.map(task => task.id === taskId ? {...task, title: newtask } : task))
     }
     
     // completar tareas
@@ -50,7 +50,7 @@ export const TaskProvider = ({ children }) => {
 
     return (
         //value es la props del provider, en la que se pasa en este caso un objeto 
-        <TaskContext.Provider value={{tasks, addTask, deleteTask, toggleTaskCompletion}}>
+        <TaskContext.Provider value={{tasks, addTask, deleteTask, toggleTaskCompletion, editTask}}>
             {children}
         </TaskContext.Provider>
 
