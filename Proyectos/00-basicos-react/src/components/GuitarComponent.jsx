@@ -13,7 +13,7 @@ const GuitarComponent = (guitar) => {
             <p className='text-sm'>{guitar.tipo}</p>
             <p className=''>{guitar.precio}</p>
         </div>
-        </div>
+        </div>  
     )
 }
 
