@@ -1,20 +1,30 @@
-import guitarsolid from "../assets/guitar-solid.svg"
+import guitarsolid from "../assets/guitar-solid.svg";
 
-
-const GuitarComponent = (guitar) => {
+const GuitarComponent = ({ guitar }) => {
     return (
-        <div 
-        key={guitar.name} 
-        className='bg-gray-100 border p-4 mt-4 rounded-ld shadow-md flex items-center'
+        <div
+            key={guitar.nombre}
+            className="bg-gray-100 border p-4 mt-4 rounded-lg shadow-md flex items-center"
         >
-        <img src={guitarsolid} width={80} alt={guitar.name} className='w-20 h-20 object-cover'/>
-        <div>
-            <h2 className='text-lg font-bold '>{guitar.nombre}</h2>
-            <p className='text-sm'>{guitar.tipo}</p>
-            <p className=''>{guitar.precio}</p>
+            <img
+                src={guitarsolid}
+                width={80}
+                alt={guitar.nombre}
+                className="w-20 h-20 object-cover mr-4"
+            />
+            <div>
+                <h2 className="text-lg font-bold">{guitar.nombre}</h2>
+                <p className="text-sm text-gray-600">{guitar.tipo}</p>
+                <p className="text-sm text-gray-800 font-medium">${guitar.precio}</p>
+            </div>
         </div>
+<<<<<<< HEAD
         </div>  
     )
 }
+=======
+    );
+};
+>>>>>>> 76874775ee39dc324c63462933674690b61060db
 
-export default GuitarComponent
+export default GuitarComponent;

@@ -1,0 +1,76 @@
+
+    {
+        "products": [
+
+        {
+            id: 1,
+        name: "Clean Code",
+        price: 29.99,
+        tags: ["Java", "Software Engineering"],
+        img: "https://example.com/clean-code.jpg"
+    },
+    {
+        id: 2,
+        name: "The Pragmatic Programmer",
+        price: 34.99,
+        tags: ["Software Engineering", "Best Practices"],
+        img: "https://example.com/pragmatic-programmer.jpg"
+    },
+    {
+        id: 3,
+        name: "JavaScript: The Good Parts",
+        price: 24.99,
+        tags: ["JavaScript", "Web Development"],
+        img: "https://example.com/javascript-good-parts.jpg"
+    },
+    {
+        id: 4,
+        name: "You Don't Know JS",
+        price: 39.99,
+        tags: ["JavaScript", "Web Development"],
+        img: "https://example.com/you-dont-know-js.jpg"
+    },
+    {
+        id: 5,
+        name: "Eloquent JavaScript",
+        price: 27.99,
+        tags: ["JavaScript", "Web Development"],
+        img: "https://example.com/eloquent-javascript.jpg"
+    },
+    {
+        id: 6,
+        name: "Introduction to the Theory of Computation",
+        price: 49.99,
+        tags: ["Computer Science", "Theory"],
+        img: "https://example.com/theory-of-computation.jpg"
+    },
+    {
+        id: 7,
+        name: "Design Patterns: Elements of Reusable Object-Oriented Software",
+        "price": 44.99,
+        "tags": ["Software Engineering", "Design Patterns"],
+        "img": "https://example.com/design-patterns.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Refactoring: Improving the Design of Existing Code",
+        "price": 39.99,
+        "tags": ["Software Engineering", "Best Practices"],
+        "img": "https://example.com/refactoring.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Effective Java",
+        "price": 35.99,
+        "tags": ["Java", "Best Practices"],
+        "img": "https://example.com/effective-java.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Python Crash Course",
+        "price": 29.99,
+        "tags": ["Python", "Web Development"],
+        "img": "https://example.com/python-crash-course.jpg"
+    }
+]
+    }
