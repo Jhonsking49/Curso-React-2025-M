@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom"
 const Rootlayout = () => {
     return (
         // Contenedor Principal
-        <div className="min-h-screen bg-gray-100">
+        <div className="flex flex-col min-h-screen bg-gray-100">
             <nav className="bg-blue-900 text-white shadow-lg">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex justify-between h-16">
@@ -50,11 +50,11 @@ const Rootlayout = () => {
                 </div>
             </nav>
             {/* Contenedor principal donde colocar el outlet */}
-            <main className="max-w-7xl mx-auto px-4 py-6">
+            <main className="max-w-7xl px-4 py-6 flex-grow">
                 {/*Outlet */}
                 <Outlet />
             </main>
-            <footer className="bg-blue-900 text-white text-center ">
+            <footer className="bg-blue-900 text-white flex mt-auto">
                 <div className="max-w-7xl mx-auto px-4 py-6">
                     <p className="text-center ">Videoclub 2025</p>
                 </div>
