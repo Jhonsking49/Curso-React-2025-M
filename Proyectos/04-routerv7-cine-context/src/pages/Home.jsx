@@ -6,24 +6,6 @@ import MovieCard from "../components/MovieCard";
 
 
 const Home = () => {
-    /*
-    const [movies, setMovies] = useState([]);
-
-    const fetchingDataMovies = async () => {
-        const api_token = import.meta.env.VITE_API_TOKEN
-        const response = await fetch (`https://api.themoviedb.org/3/movie/popular?api key=${api_token}`)
-        if(!response) {
-            throw new Error (" Error al fetchear la data")
-        }
-        const data = await response.json();
-        setMovies(data.results);
-    }
-
-    useEffect(() => {
-        fetchingDataMovies();
-    }, [])
-    */
-    
     const [page, setPage] = useState(1);
     const [data, loading, error] = useFetch(()=> getPopularMovies(page), [page]);
     // que pasa con el scroll
@@ -34,8 +16,6 @@ const Home = () => {
         setPage(newPage);
     }
 
-
-    
     // si hay error
     if(error){
         return (
