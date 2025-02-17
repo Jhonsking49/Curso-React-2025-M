@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { getImageUrl } from "../services/tmdb"
 
 const MovieCard = ({ movie }) => {
-    console.log(movie);
+    //console.log(movie);
     const rating = movie.vote_average ? movie.vote_average.toFixed(1) : "N/A";
     return (
         <Link to={`/movie/${movie.id}`} className="bg-sky-800">
