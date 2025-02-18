@@ -9,12 +9,13 @@ import Reviews from "../pages/Reviews";
 import Favorites from "../pages/Favorites";
 import Login from "../pages/LoginPage";
 import Register from "../pages/Registerpage";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 // Componente para proteger rutas
-const ProtectedRoute = ({ element }) => {
+/*const ProtectedRoute = ({ element }) => {
     const isAuthenticated = localStorage.getItem("auth");
     return isAuthenticated ? element : <Navigate to="/login" replace />;
-};
+};*/
 
 export const router = createBrowserRouter([
     {
@@ -30,12 +31,30 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute element={<Rootlayout />} />,
         errorElement: <Error />,
         children: [
-            { index: true, element: <Home /> },
-            { path: "movies", element: <MovieList /> },
-            { path: "movie/:id", element: <MovieDetail /> },
-            { path: "search", element: <Search /> },
-            { path: "reviews", element: <Reviews /> },
-            { path: "favorites", element: <Favorites /> },
+            { 
+                index: true, 
+                element: <Home /> 
+            },
+            { 
+                path: "movies", 
+                element: <MovieList /> 
+            },
+            { 
+                path: "movie/:id", 
+                element: <MovieDetail /> 
+            },
+            { 
+                path: "search", 
+                element: <Search /> 
+            },
+            { 
+                path: "reviews", 
+                element: <Reviews /> 
+            },
+            { 
+                path: "favorites", 
+                element: <Favorites /> 
+            },
         ],
     },
 ]);

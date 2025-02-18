@@ -15,9 +15,6 @@ const ProtectedRoute = () => {
         });
         console.log(auth);
     }
-
-    // aqui podriamos poner cualquier contexto que necesite
-    // localStorage.getItem("auth")
     
     return (
         <div>

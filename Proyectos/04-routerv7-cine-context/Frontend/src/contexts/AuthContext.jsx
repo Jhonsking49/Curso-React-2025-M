@@ -1,23 +1,32 @@
-import { createContext, useState } from "react";
+import { useEffect, useState } from "react";
+import { createContext } from "react";
+
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({
-        username: "",
-        password: ""
+export const AuthProvider = ({children}) => {
+
+    const [users, setUsers] = useState(()=>{
+        const savedTasks = localStorage.getItem('videouser');
+        return savedTasks ? JSON.parse(savedTasks) : [];
     });
 
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(users))
+    }, [users])
+
     const login = (username, password) => {
-        setAuth({
-            username: username,
-            password: password
-        });
+        setUsers((prevUsers)=>[...prevUsers, {username, password}])
     }
 
+    const logout = () =>{
+        setUsers([]);
+    }
+
+
     return (
-        <AuthContext.Provider value={{ auth, setAuth, login }}>
+        <AuthContext.Provider value={{ users, login, logout}}>
             {children}
         </AuthContext.Provider>
-    );
+    )
 }
