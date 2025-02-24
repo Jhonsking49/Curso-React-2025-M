@@ -1,49 +1,70 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import RootLayout from "../layouts/RootLayout";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import RootLayout from "../layouts/RootLayout";
-import ErrorPage from "../pages/ErrorPage";
-import HomePage from "../pages/HomePage";
-import CreateProductPage from "../pages/CreateProductPage";
-import EditProductPage from "../pages/EditProductPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProtectedRoute from "../components/ProtectedRoute";
-
+import CreateProductPage from "../pages/CreateProductPage";
+import EditProductPage from "../pages/EditProductPage";
+import DeleteProductPage from "../pages/DeleteProductPage";
+import HomePage from "../pages/HomePage";
 
 export const router = createBrowserRouter([
     {
-        path: "/login",
-        element: <LoginPage />,
-    },
-    {
-        path: "/register",
-        element: <RegisterPage />,
-    },
-    {
         path: "/",
-        element: (
-            <ProtectedRoute>
-                <RootLayout />
-            </ProtectedRoute>
-        ),
-        errorElement: <ErrorPage />,
+        element: <RootLayout />,
         children: [
+        {
+            index: true,
+            element: <Navigate to="login" replace />,
+        },
+        // rutas públicas
+        {
+            path: "login",
+            element: <LoginPage />,
+        },
+        {
+            path: "register",
+            element: <RegisterPage />,
+        },
+        {
+            path: "products",
+            children: [
             {
                 index: true,
-                element: <HomePage />
+                element: <HomePage />,
             },
             {
-                path: "/newproduct",
-                element: <CreateProductPage />
+                path: ":id",
+                element: <ProductDetailPage />,
             },
             {
-                path: "/product/:id/edit",
-                element: <EditProductPage />
+                path: "new",
+                element: (
+                <ProtectedRoute>
+                    <CreateProductPage />
+                </ProtectedRoute>
+                ),
             },
             {
-                path: "/product/:id",
-                element: <ProductDetailPage />
-            }
-        ]
-    }
-])
+                path: ":id/edit",
+                element: (
+                <ProtectedRoute>
+                    <EditProductPage />
+                </ProtectedRoute>
+                ),
+            },
+            {
+                path: ":id/delete",
+                element: (
+                <ProtectedRoute>
+                    <DeleteProductPage />
+                </ProtectedRoute>
+                ),
+            },
+            ],
+        },
+        ],
+    },
+    {},
+]);
